@@ -134,9 +134,8 @@ export function Quiz({ address }: QuizProps) {
             <label htmlFor={`answer-${address}`} className="block text-sm font-medium mb-1 text-gray-700">
               Your Answer
             </label>
-            <motion.input
+            <input
               id={`answer-${address}`}
-              whileFocus={{ scale: 1.02 }}
               type="text"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
@@ -149,9 +148,8 @@ export function Quiz({ address }: QuizProps) {
             <label htmlFor={`betAmount-${address}`} className="block text-sm font-medium mb-1 text-gray-700">
               Bet Amount (ETH)
             </label>
-            <motion.input
+            <input
               id={`betAmount-${address}`}
-              whileFocus={{ scale: 1.02 }}
               type="number"
               value={betAmount}
               onChange={(e) => setBetAmount(e.target.value)}
@@ -166,9 +164,7 @@ export function Quiz({ address }: QuizProps) {
             )}
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             type="submit"
             disabled={isPending || isConfirming}
             className={`w-full py-2 px-4 text-white rounded-md transition-all duration-300 ease-in-out ${
@@ -182,7 +178,7 @@ export function Quiz({ address }: QuizProps) {
             ) : (
               'Submit Answer'
             )}
-          </motion.button>
+          </button>
 
           {error && (
             <motion.div
@@ -229,14 +225,12 @@ export function Quiz({ address }: QuizProps) {
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Error</h3>
               <p className="text-gray-600">{errorMessage}</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setShowErrorModal(false)}
                 className="mt-4 w-full py-2 px-4 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors duration-300"
               >
                 Close
-              </motion.button>
+              </button>
             </motion.div>
           </motion.div>
         )}

@@ -5,7 +5,6 @@ import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { parseEther } from 'viem'
 import { QUIZ_FACTORY_ADDRESS } from '@/constants/contracts'
 import { QuizFactoryABI } from '@/abi'
-import { motion } from 'framer-motion'
 import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 
 export function CreateQuiz() {
@@ -37,19 +36,15 @@ export function CreateQuiz() {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <div
       className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg"
     >
       <h2 className="text-3xl font-bold mb-6 text-orange-500">Create a Quiz</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="question" className="block mb-2 text-sm font-medium text-gray-700">Question</label>
-          <motion.input
+          <input
             id="question"
-            whileFocus={{ scale: 1.02 }}
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -60,9 +55,8 @@ export function CreateQuiz() {
 
         <div>
           <label htmlFor="answer" className="block mb-2 text-sm font-medium text-gray-700">Answer</label>
-          <motion.input
+          <input
             id="answer"
-            whileFocus={{ scale: 1.02 }}
             type="text"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
@@ -73,9 +67,8 @@ export function CreateQuiz() {
 
         <div>
           <label htmlFor="initialFund" className="block mb-2 text-sm font-medium text-gray-700">Initial Fund (ETH)</label>
-          <motion.input
+          <input
             id="initialFund"
-            whileFocus={{ scale: 1.02 }}
             type="number"
             value={initialFund}
             onChange={(e) => setInitialFund(e.target.value)}
@@ -85,9 +78,7 @@ export function CreateQuiz() {
           />
         </div>
 
-        <motion.button 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        <button 
           type="submit" 
           disabled={isPending || isConfirming}
           className={`w-full px-4 py-3 text-white rounded-md transition-all duration-300 ease-in-out ${
@@ -101,39 +92,33 @@ export function CreateQuiz() {
           ) : (
             'Create Quiz'
           )}
-        </motion.button>
+        </button>
 
         {hash && (
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div 
             className="text-sm text-gray-600 mt-4"
           >
             Transaction Hash: {hash}
-          </motion.div>
+          </div>
         )}
         {isSuccess && (
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div 
             className="flex items-center text-green-500 mt-4"
           >
             <CheckCircle className="mr-2" size={20} />
             Quiz created successfully!
-          </motion.div>
+          </div>
         )}
         {error && (
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div 
             className="flex items-center text-red-500 mt-4"
           >
             <AlertCircle className="mr-2" size={20} />
             Error: {error.message}
-          </motion.div>
+          </div>
         )}
       </form>
-    </motion.div>
+    </div>
   )
 }
 

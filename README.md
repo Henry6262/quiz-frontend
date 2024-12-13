@@ -12,5 +12,10 @@ are not production optimized, this is only for testing purposes.
 npm install
 npx next dev
 
+answers to first 2 quizzes
+
+- tomorrowland
+- yes
+
 
 

@@ -1,6 +1,6 @@
-## import the private key into a wallet to have admin/ deployer permissions to create quizzes.
+﻿## Admin / deployer access
 
-deployer private key - > 0xf08864c039f0a797616c0170382a326ff37acb30f0712256c1ffb1ab1f6fa633
+Import the deployer wallet into your wallet locally to create quizzes. **Never commit private keys.** Keep the key in a local untracked `.env.local` (ignored by `.env*` in `.gitignore`) or your wallet only. (A previously committed key was removed from this README; it remains in git history and must be considered compromised. Rotate it.)
 
 each quizz can only be answered CORRECTLY once per wallet.
 
